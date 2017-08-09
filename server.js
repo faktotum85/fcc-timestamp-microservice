@@ -8,8 +8,13 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.get('/:timestamp', function(req, res) {
-  const d = new Date(req.params.timestamp);
-  const d_utc = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  let d = new Date(req.params.timestamp);
+  let d_utc;
+  if (isNaN(d.getTime())) {
+    d_utc = new Date(Number(req.params.timestamp) * 1000);
+  } else {
+    d_utc = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  }
   const out = {
     "unix": null,
     "natural": null
