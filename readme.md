@@ -10,6 +10,7 @@ string contains either a unix timestamp or a natural language date (example: Jan
 ## Example usage
 
 `https://limitless-reaches-21280.herokuapp.com/December%2015,%202015`
+
 `https://limitless-reaches-21280.herokuapp.com/1450137600`
 
 ## Example output
